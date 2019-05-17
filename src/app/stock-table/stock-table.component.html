@@ -1,0 +1,22 @@
+<section>
+    <div class="container">
+        <h1  class="text-center">Stock Tracker</h1>
+      <div class="row">
+        
+        <div class="col-md-12 list-container" >
+            <ul class="list-group">
+                <li class="list-group-item row" *ngFor="let stock of stockList"> 
+                  <div class="col-sm-3"> {{stock.symbol}}  <span data-toggle="tooltip" data-placement="top" title="{{stock.name}}">*</span> </div>
+                   <div class="col-sm-3"></div>
+                   <div class="col-sm-6"></div> 
+              
+                </li>
+                
+              </ul>
+           
+          
+        </div>
+      </div>
+    
+    </div>
+    </section>

@@ -1,0 +1,18 @@
+<section>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 list-container" >
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let stock of stockList"> 
+                  {{stock.symbol}}  <span data-toggle="tooltip" data-placement="top" title="{{stock.name}}">*</span> 
+                  <button class="btn btn-danger round-button" (click)="removeStock(stock.symbol)">X</button>
+                </li>
+                
+              </ul>
+           
+          
+        </div>
+      </div>
+    
+    </div>
+    </section>

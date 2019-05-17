@@ -1,0 +1,26 @@
+<section>
+<div class="container">
+  <div class="row">
+    <div class="form-container col-md-8" >
+        <div class="form-group row">
+          <div class="col-sm-8">
+              <input type="text" class="form-control" #stock_name (keyup)="inputChange(stock_name)" >
+              <div class="search-list-container">
+                <ul class="search-list">
+                  <li *ngFor="let item of searchList" (click)="selectSearchValue(stock_name,item.symbol,item.name)" >{{item.symbol}}</li>
+                </ul>
+              </div>
+            
+            
+          </div>
+          <div class="col-sm-4">
+              <button class="btn btn-success" (click)="addStock(stock_name)">Add to the list</button>
+          </div>
+        </div>
+       
+      
+    </div>
+  </div>
+
+</div>
+</section>

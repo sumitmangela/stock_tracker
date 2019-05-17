@@ -1,0 +1,25 @@
+.form-container{
+    margin: 0 auto;
+}
+
+ul.search-list{
+    width: 100%;
+    list-style: none;
+    padding: 0px;
+    background: #fff;
+    border: 1px;
+    position: absolute;
+    z-index: 1;
+}
+.search-list-container{
+    position: relative;
+}
+ul.search-list li{
+    padding: 5px 10px;
+    border: 1px solid #ced4da;
+    border-top: 0px;
+    cursor: pointer;
+}
+ul.search-list li:hover{
+background: whitesmoke;
+}
