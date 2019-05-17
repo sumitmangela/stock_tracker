@@ -11,9 +11,12 @@ export class StockTableComponent implements OnInit {
   constructor(private stockProviderService: StockProviderService) { }
 
   stockList: {}[];
+  stockDetails: {};
 
   ngOnInit() {
     this.stockList = this.stockProviderService.getList();
+    this.stockDetails = this.stockProviderService.getDetails();
+    this.stockProviderService.initialCall();
   }
 
 }

@@ -3,18 +3,41 @@
         <h1  class="text-center">Stock Tracker</h1>
       <div class="row">
         
-        <div class="col-md-12 list-container" >
+        <div class="col-md-3 list-container" >
             <ul class="list-group">
                 <li class="list-group-item row" *ngFor="let stock of stockList"> 
-                  <div class="col-sm-3"> {{stock.symbol}}  <span data-toggle="tooltip" data-placement="top" title="{{stock.name}}">*</span> </div>
-                   <div class="col-sm-3"></div>
-                   <div class="col-sm-6"></div> 
-              
+                  {{stock.symbol}}  <span data-toggle="tooltip" data-placement="top" title="{{stock.name}}">*</span> 
+                  
                 </li>
                 
               </ul>
            
           
+        </div>
+        <div class="col-md-9 display-container" >
+
+             <div class="row">
+                    <div class="col-md-6 name">
+                            {{stockDetails |  async }} <br/> 
+                            Full Name
+                    </div>
+                    <div class="col-md-3 time">
+                          Time updated
+                    </div>
+                    <div class="col-md-3 price">
+                            <div class="high">
+                              High
+                            </div>
+                            <div class="low">
+                              Low
+                            </div>
+                    </div>
+             </div>
+             <div class="row">
+               <div class="col-md-12 graph-container">
+                      Graph
+               </div>
+             </div>
         </div>
       </div>
     
