@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { StockProviderService } from '../stock-provider.service';
 
 @Component({
@@ -8,15 +8,29 @@ import { StockProviderService } from '../stock-provider.service';
 })
 export class StockTableComponent implements OnInit {
 
-  constructor(private stockProviderService: StockProviderService) { }
+  constructor(private stockProviderService: StockProviderService) {}
 
   stockList: {}[];
   stockDetails: {};
 
+  @ViewChild('graph') public graphEl: ElementRef;
+
   ngOnInit() {
+    this.stockDetails = { symbol: '', name: '', time: '', high: '', low : '', time_series: {} };
+
     this.stockList = this.stockProviderService.getList();
-    this.stockDetails = this.stockProviderService.getDetails();
-    this.stockProviderService.initialCall();
+    this.stockProviderService.initialCall(this.graphEl.nativeElement);
+    this.stockProviderService.stockSubject.subscribe(
+        (value) => {
+           this.stockDetails = value;
+
+           console.log(this.stockDetails);
+        }
+    );
+  }
+
+  afterStockSelect(symbol: string , name: string) {
+    this.stockProviderService.changeStock(this.graphEl.nativeElement, symbol, name);
   }
 
 }

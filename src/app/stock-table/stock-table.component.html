@@ -5,7 +5,7 @@
         
         <div class="col-md-3 list-container" >
             <ul class="list-group">
-                <li class="list-group-item row" *ngFor="let stock of stockList"> 
+                <li class="list-group-item row" *ngFor="let stock of stockList" (click)="afterStockSelect(stock.symbol, stock.name)"> 
                   {{stock.symbol}}  <span data-toggle="tooltip" data-placement="top" title="{{stock.name}}">*</span> 
                   
                 </li>
@@ -17,25 +17,29 @@
         <div class="col-md-9 display-container" >
 
              <div class="row">
-                    <div class="col-md-6 name">
-                            {{stockDetails |  async }} <br/> 
-                            Full Name
+                    <div class="col-md-5 name">
+                            {{stockDetails.symbol }} <br/> 
+                            {{stockDetails.name }}
                     </div>
-                    <div class="col-md-3 time">
-                          Time updated
+                    <div class="col-md-4 time">
+                      {{stockDetails.time | date:'mediumDate':'+0530'}} <br/>
+                      {{stockDetails.time | date:'h:mm a ' }}
+
+                      
+
                     </div>
                     <div class="col-md-3 price">
                             <div class="high">
-                              High
+                              {{stockDetails.high | number:'1.02'}} 
                             </div>
                             <div class="low">
-                              Low
+                              {{stockDetails.low | number:'1.02'}} 
                             </div>
                     </div>
              </div>
              <div class="row">
                <div class="col-md-12 graph-container">
-                      Graph
+                      <div id="graph" #graph></div>
                </div>
              </div>
         </div>
