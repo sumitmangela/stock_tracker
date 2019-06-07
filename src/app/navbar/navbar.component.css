@@ -19,4 +19,17 @@
 
 .navbar-nav li a{
     padding: 15px;
+   
+    background: #484848;
+    color: #fff;
+    font-size: 17px;
+}
+.navbar-nav li a.active{
+   background: #86e860; 
+   color: #484848;
+}
+
+.navbar-nav .material-icons{
+  font-size: 40px;
+  vertical-align: middle;
 }

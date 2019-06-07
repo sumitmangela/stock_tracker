@@ -7,3 +7,43 @@
     font-size: 13px;
     float: right;
 }
+
+.list-container .material-icons{
+    vertical-align: top;
+    font-size: 16px;
+}
+
+.list-container .list-group-item{
+    background: #484848;
+    color: #fff;
+    cursor: pointer;
+    border: 1px solid rgba(239, 239, 239, 0.125);
+}
+.list-container .list-group-item.active{
+    background: #86e860;
+    color: #484848;
+}
+
+
+.display-container .symbol,.display-container .fullname,
+.display-container .date,.display-container .lasttime,
+ .display-container .high,  .display-container .low{
+    font-size: 16px;
+    text-align: center;
+    background: gainsboro;
+    padding: 10px;
+    color: #777777;
+}
+.display-container .symbol{
+    font-size: 56px;
+}
+.display-container .time, .display-container .price{
+    align-self: flex-end;
+}
+.display-container .price .material-icons{
+    vertical-align: middle;
+}
+
+#graph{
+    border: 3px solid gainsboro;
+}

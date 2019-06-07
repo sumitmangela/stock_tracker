@@ -1,39 +1,38 @@
 <section>
     <div class="container">
-        <h1  class="text-center">Stock Tracker</h1>
-      <div class="row">
         
-        <div class="col-md-3 list-container" >
-            <ul class="list-group">
-                <li class="list-group-item row" *ngFor="let stock of stockList" (click)="afterStockSelect(stock.symbol, stock.name)"> 
-                  {{stock.symbol}}  <span data-toggle="tooltip" data-placement="top" title="{{stock.name}}">*</span> 
-                  
-                </li>
-                
-              </ul>
-           
-          
+      <div class="row">
+
+        <div class="col-md-9"  *ngIf="0">
+         
         </div>
+
         <div class="col-md-9 display-container" >
 
              <div class="row">
                     <div class="col-md-5 name">
-                            {{stockDetails.symbol }} <br/> 
+                        <div class="symbol">
+                            {{stockDetails.symbol }} 
+                          </div>
+                          <div class="fullname">
                             {{stockDetails.name }}
+                            </div>
                     </div>
                     <div class="col-md-4 time">
-                      {{stockDetails.time | date:'mediumDate':'+0530'}} <br/>
-                      {{stockDetails.time | date:'h:mm a ' }}
-
+                        <div class="date">
+                            {{stockDetails.time | date:'mediumDate':'+0530'}} 
+                        </div>
+                        <div class="lasttime">
+                            {{stockDetails.time | date:'h:mm a ' }}
+                        </div>
                       
-
                     </div>
                     <div class="col-md-3 price">
                             <div class="high">
-                              {{stockDetails.high | number:'1.02'}} 
+                                <i class='material-icons'>trending_up</i> {{stockDetails.high | number:'1.02'}}
                             </div>
                             <div class="low">
-                              {{stockDetails.low | number:'1.02'}} 
+                                <i class='material-icons'>trending_down</i> {{stockDetails.low | number:'1.02'}}
                             </div>
                     </div>
              </div>
@@ -42,6 +41,14 @@
                       <div id="graph" #graph></div>
                </div>
              </div>
+        </div>
+
+        <div class="col-md-3 list-container" >
+            <ul class="list-group">
+                <li class="list-group-item row" *ngFor="let stock of stockList" [ngClass]="{'active': stockActive == stock.symbol}" (click)="afterStockSelect(stock.symbol, stock.name)"> 
+                  {{stock.symbol}}  <span class="material-icons" data-toggle="tooltip" data-placement="top" title="{{stock.name}}">info_outline</span> 
+                </li>
+              </ul>
         </div>
       </div>
     

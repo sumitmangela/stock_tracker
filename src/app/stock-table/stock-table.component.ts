@@ -12,6 +12,8 @@ export class StockTableComponent implements OnInit {
 
   stockList: {}[];
   stockDetails: {};
+  stockActive: string;
+ 
 
   @ViewChild('graph') public graphEl: ElementRef;
 
@@ -19,18 +21,19 @@ export class StockTableComponent implements OnInit {
     this.stockDetails = { symbol: '', name: '', time: '', high: '', low : '', time_series: {} };
 
     this.stockList = this.stockProviderService.getList();
+    this.stockActive = this.stockList[0]["symbol"];
+
     this.stockProviderService.initialCall(this.graphEl.nativeElement);
     this.stockProviderService.stockSubject.subscribe(
         (value) => {
            this.stockDetails = value;
-
-           console.log(this.stockDetails);
         }
     );
   }
 
   afterStockSelect(symbol: string , name: string) {
     this.stockProviderService.changeStock(this.graphEl.nativeElement, symbol, name);
+    this.stockActive = symbol;
   }
 
 }

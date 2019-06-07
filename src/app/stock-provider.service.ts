@@ -139,7 +139,8 @@ changeStock(container,symbol,name){
       },
       series: [{
         name: symbol,
-        data: data
+        data: data,
+        color: '#86e860',
       }],
       rangeSelector: {
           buttons: [{
