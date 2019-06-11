@@ -47,3 +47,18 @@
 #graph{
     border: 3px solid gainsboro;
 }
+
+.loader{
+    text-align: center;
+    margin: 140px 0px;
+}
+
+@media only screen and (max-width: 767px) {
+    .list-container {
+       margin: 20px;
+    }
+    .date,.lasttime,.high,.low{
+        display: inline-block;
+        width:50%;
+    }
+  }

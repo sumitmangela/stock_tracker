@@ -13,6 +13,7 @@ export class StockTableComponent implements OnInit {
   stockList: {}[];
   stockDetails: {};
   stockActive: string;
+  loading:boolean = true;
  
 
   @ViewChild('graph') public graphEl: ElementRef;
@@ -27,6 +28,7 @@ export class StockTableComponent implements OnInit {
     this.stockProviderService.stockSubject.subscribe(
         (value) => {
            this.stockDetails = value;
+           this.loading = false;
         }
     );
   }
@@ -34,6 +36,7 @@ export class StockTableComponent implements OnInit {
   afterStockSelect(symbol: string , name: string) {
     this.stockProviderService.changeStock(this.graphEl.nativeElement, symbol, name);
     this.stockActive = symbol;
+    this.loading = true;
   }
 
 }
