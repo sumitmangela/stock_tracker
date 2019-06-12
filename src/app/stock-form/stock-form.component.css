@@ -16,10 +16,41 @@ ul.search-list{
 }
 ul.search-list li{
     padding: 5px 10px;
-    border: 1px solid #ced4da;
     border-top: 0px;
     cursor: pointer;
+    background: #484848;
+    color: white;
+    border:none;
 }
-ul.search-list li:hover{
-background: whitesmoke;
+
+.form-group{
+    margin-bottom: 40px;
+}
+.btn-group{
+    display: flex;
+    height: 38px;
+    flex-wrap: wrap;
+  
+}
+.btn-group input{
+    text-align: center;
+    font-size: 18px;
+    border-radius: 0px;
+    border: 1px solid #484848;
+    box-shadow: none;
+    background: #fff;
+}
+
+.btn-group .clear{
+    background: #484848;
+    color: #fff;
+    border: none;
+    border-radius: 0px;
+}
+
+.btn-group .add{
+    background: #86e860;
+    color: #484848;
+    border: none;
+    border-radius: 0px;
 }

@@ -10,6 +10,7 @@ export class StockFormComponent implements OnInit {
 
   searchList: {}[];
   data_name: string = '';
+  disableSearch :boolean = false;
 
   constructor(private stockProviderService: StockProviderService) { }
 
@@ -20,8 +21,14 @@ export class StockFormComponent implements OnInit {
      if (stock_name.value && stock_name.value !== ' ' ) {
        this.stockProviderService.addStockToList(stock_name.value.toUpperCase(), this.data_name);
        stock_name.value = '';
+       this.disableSearch = false;
      }
   }
+
+  clearSearch(stock_name: HTMLInputElement) {
+      stock_name.value = '';
+      this.disableSearch = false;
+ }
 
   inputChange(stock_name: HTMLInputElement){
     if (stock_name.value && stock_name.value !== ' ' ) {
@@ -40,6 +47,7 @@ export class StockFormComponent implements OnInit {
     stock_name.value = stock_value;
     this.data_name = data_name;
     this.searchList = [];
+    this.disableSearch = true;
   }
 
 }

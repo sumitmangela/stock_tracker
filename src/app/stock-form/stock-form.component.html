@@ -3,8 +3,14 @@
   <div class="row">
     <div class="form-container col-md-8" >
         <div class="form-group row">
-          <div class="col-sm-8">
-              <input type="text" class="form-control" #stock_name (keyup)="inputChange(stock_name)" >
+          <div class="col-sm-12">
+            
+              
+              <div class="btn-group ">
+                  <input type="text" placeholder="Search and Add to Stock List" class="form-control" #stock_name (keyup)="inputChange(stock_name)"  [disabled]="disableSearch"  >
+                <button type="button" class="btn btn-primary clear" (click)="clearSearch(stock_name)" *ngIf="disableSearch"><i class='material-icons'>close</i></button>
+                <button type="button" class="btn btn-primary add" (click)="addStock(stock_name)" *ngIf="disableSearch"><i class='material-icons'>add</i></button>
+              </div>
               <div class="search-list-container">
                 <ul class="search-list">
                   <li *ngFor="let item of searchList" (click)="selectSearchValue(stock_name,item.symbol,item.name)" >{{item.symbol}}</li>
@@ -13,9 +19,9 @@
             
             
           </div>
-          <div class="col-sm-4">
+          <!-- <div class="col-sm-4">
               <button class="btn btn-success" (click)="addStock(stock_name)">Add to the list</button>
-          </div>
+          </div> -->
         </div>
        
       
