@@ -14,3 +14,6 @@ I am planning to add local daa storage for stock list soon.
 - Material Icons
 - Highcharts
 - ngx-toaster alerts
+
+
+Feel free to use this code anyhow you like.
