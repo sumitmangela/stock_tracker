@@ -1,27 +1,16 @@
 # StockTracker
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.2.
+This is an angular app that helps you keep track of all stock prices with graphs. 
+It has a very simple interface and modern UI. You will see all the need information on selected stock and it's graph on the dashboard. You can also select another stock from the stock list shown on the right.
+The Second tab is stock list tab using this you can add new stocks to the list or delete the old ones. It stock lists are currently not stored on your local data so a reload will reset the list.
 
-## Development server
+I am planning to add local daa storage for stock list soon.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+# Frameworks and plugins used for development
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- Angular 7
+- Bootstrap 4
+- Material Icons
+- Highcharts
+- ngx-toaster alerts
