@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StockProviderService } from '../stock-provider.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-stock-list',
@@ -8,7 +9,7 @@ import { StockProviderService } from '../stock-provider.service';
 })
 export class StockListComponent implements OnInit {
 
-  constructor(private stockProviderService: StockProviderService) { }
+  constructor(private stockProviderService: StockProviderService, private toastr: ToastrService) { }
 
   stockList: {}[];
 
@@ -18,7 +19,16 @@ export class StockListComponent implements OnInit {
 
   removeStock(stock_name: string) {
     if (stock_name) {
-      this.stockProviderService.removeStockFromList(stock_name);
+      if(this.stockList.length <= 1){
+        this.toastr.warning('There has to be minimum one stock in the list','Cannot Delete this stock',{
+          positionClass: 'toast-bottom-center',
+          timeOut: 5000,
+          closeButton: true
+        });
+      }
+      else{
+        this.stockProviderService.removeStockFromList(stock_name);
+      }
     }
   }
 

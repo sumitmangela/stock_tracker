@@ -14,6 +14,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
 
 const appRoutes: Routes = [
   { path: '', component: StockTableComponent},
@@ -35,7 +38,9 @@ const appRoutes: Routes = [
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [StockProviderService],
   bootstrap: [AppComponent]

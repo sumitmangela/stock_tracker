@@ -60,6 +60,11 @@ getStockDetails(symbol){
 
 dispalyChart(container, symbol, name){
   this.getStockDetails(symbol).subscribe((data)=> { 
+    
+    if(data['Note']){
+      this.stockSubject.next(data);
+    }
+    else{  
     let time = data["Time Series (5min)"];
 
     //  time = time[Object.keys(time)[Object.keys(time).length-1]];
@@ -79,6 +84,7 @@ dispalyChart(container, symbol, name){
     this.stockSubject.next(this.stockDetails);
 
     this.createChart(container, symbol, this.stockDetails.time_series)
+     }
    });
 }
 

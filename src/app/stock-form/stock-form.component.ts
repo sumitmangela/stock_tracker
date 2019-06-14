@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StockProviderService } from '../stock-provider.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-stock-form',
@@ -12,7 +13,7 @@ export class StockFormComponent implements OnInit {
   data_name: string = '';
   disableSearch :boolean = false;
 
-  constructor(private stockProviderService: StockProviderService) { }
+  constructor(private stockProviderService: StockProviderService, private toastr: ToastrService) { }
 
   ngOnInit() {
   }
@@ -34,7 +35,16 @@ export class StockFormComponent implements OnInit {
     if (stock_name.value && stock_name.value !== ' ' ) {
       this.stockProviderService.getSearchResults(stock_name.value)
       .subscribe((data) => { 
-        this.searchList = data['bestMatches'].map((item)=>{ return { symbol : item["1. symbol"], name: item["2. name"]} });
+        if(data['Note']){
+          this.toastr.warning('API limit is reached, Please try again after a minute','Cannot Search for stocks',{
+            positionClass: 'toast-bottom-center',
+            timeOut: 5000,
+            closeButton: true
+          });
+        }
+        else{
+          this.searchList = data['bestMatches'].map((item)=>{ return { symbol : item["1. symbol"], name: item["2. name"]} });
+        }
       } );
     }
     else{
